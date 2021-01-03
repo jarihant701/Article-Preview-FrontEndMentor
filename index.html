@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap" rel="stylesheet" />
+
+  <title>Frontend Mentor | Article preview component</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Manrope", sans-serif;
+      font-size: 0.952vw;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      width: 100vw;
+      background-color: hsl(210, 46%, 95%);
+    }
+
+    h2 {
+      font-size: 1.464vw;
+      margin-bottom: 0.732vw;
+    }
+
+    p {
+      font-size: 0.952vw;
+    }
+
+    .wrapper {
+      width: 50%;
+      display: flex;
+      background-color: white;
+      border-radius: 20px;
+    }
+
+    .image {
+      width: 35%;
+      object-fit: fill;
+      padding: 0px;
+    }
+
+    .wrapper .image img {
+      border-top-left-radius: 20px;
+      border-bottom-left-radius: 20px;
+      width: 100%;
+      height: 100%;
+    }
+
+    .content {
+      float: right;
+      width: 65%;
+      height: 100%;
+      padding: 1.83vw 2.196vw 1.83vw 2.196vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .profile {
+      margin-top: auto;
+      height: 35%;
+      padding: 1.464vw 0px 0px 0px;
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+    }
+
+    .profile-picture {
+      width: 60px;
+      border-radius: 50%;
+    }
+
+    .name-date {
+      margin-left: 20px;
+      color: hsl(217, 19%, 35%);
+      font-weight: 700;
+    }
+
+    .name-date span {
+      color: hsl(214, 17%, 51%);
+      font-weight: 500;
+    }
+
+    .share {
+      position: relative;
+      margin-left: auto;
+      border-radius: 50%;
+      background-color: hsl(212, 23%, 69%);
+      padding: 10px;
+    }
+
+    .tooltip {
+      display: none;
+    }
+
+
+
+    .tooltip {
+      display: flex;
+      background-color: hsl(217, 19%, 35%);
+      width: 200px;
+      padding: 10px 20px;
+      border-radius: 5px;
+      justify-content: space-around;
+      align-items: center;
+      color: white;
+      letter-spacing: 1px;
+      position: absolute;
+      z-index: 1;
+      bottom: 125%;
+      left: 50%;
+      margin-left: -105px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .tooltip .social-media {
+      display: flex;
+      width: 60%;
+      justify-content: space-around;
+    }
+
+    .tooltip::after {
+      content: "";
+      position: absolute;
+      top: 90%;
+      left: 50%;
+      margin-left: -5px;
+      border-width: 10px;
+      border-style: solid;
+      border-color: hsl(217, 19%, 35%) transparent transparent transparent;
+    }
+
+    .share:hover .tooltip {
+      visibility: visible;
+      opacity: 1;
+    }
+
+
+    .social-mobile {
+      display: none;
+    }
+
+
+    @media screen and (max-width: 600px) {
+      * {
+        font-size: 13px;
+      }
+
+      h2 {
+        font-size: 16px;
+        margin-bottom: 10px;
+        color: hsl(217, 19%, 35%);
+      }
+
+      p {
+        font-size: 13px;
+        color: hsl(214, 17%, 51%);
+      }
+
+      .wrapper {
+        width: 80%;
+        flex-direction: column;
+        clear: left;
+      }
+
+      .wrapper .image {
+        overflow: hidden;
+        clear: left;
+        width: 100%;
+        height: 200px;
+      }
+
+      .wrapper .image img {
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 0px;
+        object-fit: cover;
+      }
+
+      .content {
+        width: 100%;
+        padding: 20px 30px;
+      }
+
+      .profile {
+        padding: 30px 0px 0px 0px;
+      }
+
+      #social-mobile {
+        display: none;
+        background-color: hsl(217, 19%, 35%);
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        padding: 20px 30px 20px 30px;
+        letter-spacing: 5px;
+        color: white;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+      }
+
+      .social-media {
+        margin: auto;
+        display: flex;
+        width: 50%;
+        justify-content: space-around;
+      }
+
+      .name-date {
+        padding: 0px 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="image">
+      <img src="./images/drawers.jpg" alt="" />
+    </div>
+    <div class="content">
+      <h2>
+        Shift the overall look and feel by adding these wonderful touches to
+        furniture in your home
+      </h2>
+      <p>
+        Ever been in a room and felt like something was missing? Perhaps it
+        felt slightly bare and uninviting. I’ve got some simple tips to help
+        you make any room feel complete.
+      </p>
+      <div class="profile" id="profile">
+        <img class="profile-picture" src="./images/avatar-michelle.jpg" alt="" />
+        <div class="name-date">
+          Michelle Appleton<br /><span>26-Jun-2020</span>
+        </div>
+        <div class="share" id="share">
+          <img src="./images/icon-share.svg" alt="share" />
+          <span class="tooltip">
+            <div class="share-text">SHARE</div>
+            <div class="social-media">
+              <img src="./images/icon-facebook.svg" alt="facebook" class="social-icons" />
+              <img src="./images/icon-pinterest.svg" alt="pintrest" class="social-icons" />
+              <img src="./images/icon-twitter.svg" alt="twitter" class="social-icons" />
+            </div>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="social-mobile" id="social-mobile">
+      <div class="share-text">SHARE</div>
+      <div class="social-media">
+        <img src="./images/icon-facebook.svg" alt="facebook" class="social-icons" />
+        <img src="./images/icon-pinterest.svg" alt="pintrest" class="social-icons" />
+        <img src="./images/icon-twitter.svg" alt="twitter" class="social-icons" />
+      </div>
+      <div class="share">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="13">
+          <path fill="#ffffff"
+            d="M15 6.495L8.766.014V3.88H7.441C3.33 3.88 0 7.039 0 10.936v2.049l.589-.612C2.59 10.294 5.422 9.11 8.39 9.11h.375v3.867L15 6.495z" />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.getElementById("share").addEventListener("click", function () {
+      if (screen.width <= 600) {
+        document.getElementById("profile").style.display = "none";
+        document.getElementById("social-mobile").style.display = "flex";
+        console.log(document.getElementById("social-mobile").style.display)
+      }
+    });
+  </script>
+</body>
+
+</html>
